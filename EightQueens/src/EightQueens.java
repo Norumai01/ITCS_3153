@@ -196,6 +196,7 @@ public class EightQueens {
                     continue;
                 }
                 if (bestHeru == 0 && getHeru() == 0) {
+                    stateChangesCount++;
                     System.out.println("Neighbor found with lower h: " + getHeru());
                     System.out.println("\nCurrent State");
                     printBoard(getMap());
@@ -247,15 +248,5 @@ public class EightQueens {
             }
             System.out.println(" ");
         }
-    }
-    
-    public static void main(String[] args) {
-        EightQueens one = new EightQueens();
-        one.randomMap();
-        System.out.println("Current h: " + one.getHeru());
-        System.out.println("Current State");
-        one.printBoard(one.getMap());
-        one.stateComparison();
-
     }
 }
