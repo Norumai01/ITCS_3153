@@ -6,6 +6,7 @@ public class EightQueens {
     private int heruistics = 0;
     private int stateChangesCount = 0;
     private int restartCounter = 0;
+    private boolean restartFlag = false;
     
     /*         Creating the board and randomize queens location.          */
 
@@ -169,14 +170,17 @@ public class EightQueens {
                     }
                 }
             }
-            stateChangesCount++;
             // Set the lowest heruistic sub-state as the new current state. 
             map = copy(bestMap);
             heruistics = heruistic(bestMap);
             // Continues changing states until best heruistic state of the board is found. 
             if (heruistics != 0) {
-                System.out.println("Neighbor found with lower h: " + getHeru());
-                System.out.println("Setting new current state");
+                stateChangesCount++;
+                if (restartFlag == false) {
+                    System.out.println("Neighbor found with lower h: " + getHeru());
+                    System.out.println("Setting new current state");
+                }
+                restartFlag = false;
                 System.out.println("\nCurrent h: " + getHeru());
                 System.out.println("Current State");
                 printBoard(map);
@@ -214,6 +218,7 @@ public class EightQueens {
         }
         map = copy(newMap);
         randomMap();
+        restartFlag = true;
         restartCounter++;
     }
 
