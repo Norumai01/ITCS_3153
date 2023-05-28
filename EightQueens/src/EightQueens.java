@@ -30,6 +30,7 @@ public class EightQueens {
     public int getStateChangeCount() {
         return stateChangesCount;
     }
+    
     public int getRestartCount() {
         return restartCounter;
     }
