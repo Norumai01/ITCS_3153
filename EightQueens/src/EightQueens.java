@@ -198,6 +198,7 @@ public class EightQueens {
                 if (bestHeru == 0 && getHeru() == 0) {
                     stateChangesCount++;
                     System.out.println("Neighbor found with lower h: " + getHeru());
+                    System.out.println("Setting new current state");
                     System.out.println("\nCurrent State");
                     printBoard(getMap());
                     System.out.println("Solution Found!");
