@@ -11,4 +11,4 @@ If a better (lower heuristic) state was found, then that state becomes the curre
 
 Remember:  your heuristic function is a representation of how close you are to the goal state.  Unlike Pathfinding heuristics, we are not evaluating how close a particular node is to the goal node, but rather how close the current state (overall configuration) is to the goal state
 
-To run this the .java files into the terminal, the user should type "javac <java1>.java <javaN>.java...". After the .class are created for the java file, type "java <java file name of Main>.
+To run this the .java files into the terminal, the user should type "javac [java1].java [javaN].java...". After the .class are created for the java file, type "java [java file name of Main].
