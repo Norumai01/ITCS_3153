@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 public class AStar {
-    public Node[][] map = new Node[15][15];
-    public Random rand = new Random();
-    public Scanner input = new Scanner(System.in);
-    public Node startNode;
-    public Node goalNode;
+    private Node[][] map = new Node[15][15];
+    private Random rand = new Random();
+    private Scanner input = new Scanner(System.in);
+    private Node startNode;
+    private Node goalNode;
 
     public void generateMap() {
         // Generate map
         // Set 10% path of nodes non-traversable.
-        for (int i = 0; i < (map.length * 2) * 0.1; i++) {
+        for (int i = 0; i < (map.length * map.length) * 0.1; i++) {
             int row = rand.nextInt(14);
             int col = rand.nextInt(14);
 
@@ -36,7 +36,32 @@ public class AStar {
 
     public void printMap() {
         // Printing the map.
+        System.out.print("    ");
+        for (int i = 0; i < map.length; i++) {
+            if (i < 10) {
+                System.out.print(i + "  ");
+            } else {
+                System.out.print(i + "  ");
+            }
+            
+        }
         
+        System.out.println(" ");
+        for (int i = 0; i < map.length; i++) {
+            if (i < 10) {
+                System.out.print(" ");
+            }
+            System.out.print(i +"  ");
+            for (int j = 0; j < map.length; j++) {
+                if (j < 10) {
+                    System.out.print(map[i][j].getType() + "  ");
+                } else {
+                    System.out.print(map[i][j].getType() + "   ");
+                }
+                
+            }
+            System.out.println(" ");
+        }
     }
 
     public void runAStar() {
