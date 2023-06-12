@@ -51,7 +51,7 @@ public class AStar {
             if (i < 10) {
                 System.out.print(" ");
             }
-            System.out.print(i +"  ");
+            System.out.print(i + "  ");
             for (int j = 0; j < map.length; j++) {
                 if (j < 10) {
                     System.out.print(map[i][j].getType() + "  ");
