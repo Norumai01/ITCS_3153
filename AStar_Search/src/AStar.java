@@ -8,6 +8,7 @@ public class AStar {
     private Random rand = new Random();
     private Node startNode;
     private Node goalNode;
+    private static Scanner input = new Scanner(System.in);
 
     public void generateMap() {
         // Generate map
@@ -173,7 +174,7 @@ public class AStar {
         String firstXY, secondXY;
         String[] temp;
         int firstX, firstY, secondX, secondY;
-        Scanner input = new Scanner(System.in);
+        
 
         System.out.println("Enter the starting node within 15x15 tiles (from 0 to 14). Example: X Y");
         firstXY = input.nextLine();
@@ -231,6 +232,5 @@ public class AStar {
             }
         }
         goalNode = map[secondX][secondY];
-        input.close();
     }
 }

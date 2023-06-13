@@ -1,14 +1,15 @@
-import java.util.*;  
+import java.util.Scanner;  
 
 public class Main {
         public static void main(String[] args) {
         AStar game = new AStar();
         Scanner user = new Scanner(System.in);
-        String input = "Yes";
-        
+        String userInput = "Yes";
+
+        game.generateMap();
         // Take this out of a while loop to work.
-        while (input.equals("Yes") || input.equals("yes") || input.equals("y") || input.equals("Y")) {
-            game.generateMap();
+        // Any other words other than the argument will close the program. 
+        while (userInput.equals("Yes") || userInput.equals("yes") || userInput.equals("y") || userInput.equals("Y")) {   
             System.out.println("Here is the Current Map. 0 is traverseable and 1 is untraverseable. ");
             game.printMap();
             game.CoordinateInput();
@@ -16,7 +17,7 @@ public class Main {
             game.printMap();
             game.runAStar();
             System.out.println("Would you like to run the game again? Enter Yes or No.");
-            input = user.nextLine();
+            userInput = user.nextLine();
         }
         user.close();
     }
