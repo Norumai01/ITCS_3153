@@ -3,5 +3,6 @@ public class Main {
         AStar game = new AStar();
         game.generateMap();
         game.printMap();
+        game.CoordinateInput();
     }
 }
