@@ -81,7 +81,16 @@ public class AStar {
         // Check if it within 15x15 tiles bound.
         while(true) {
             if ((firstX < 15 && firstX >= 0) && (firstY < 15 && firstY >= 0)) { 
-                break;
+                startNode = map[firstX][firstY];
+                if (startNode.getType() != 1) {
+                    break;
+                } else {
+                    System.out.println("Start Node cannot be placed in untraverseable tile, Re-enter starting node. Example: X Y");
+                    firstXY = input.nextLine();
+                    temp = firstXY.split(" ");
+                    firstX = Integer.valueOf(temp[0]);
+                    firstY = Integer.valueOf(temp[1]);
+                }
             } else {
                 System.out.println("Range out of bound, Re-enter starting node. Example: X Y");
                 firstXY = input.nextLine();
@@ -90,22 +99,6 @@ public class AStar {
                 firstY = Integer.valueOf(temp[1]);
             }
         }
-        startNode = map[firstX][firstY];
-        // Check if starting node is placed in a traverseable tile. 
-        while (true) {
-            if (startNode.getType() != 1) {
-                break;
-            }
-            else {
-                System.out.println("Start Node cannot be placed in untraverseable tile, Re-enter starting node.");
-                firstXY = input.nextLine();
-                temp = firstXY.split(" ");
-                firstX = Integer.valueOf(temp[0]);
-                firstY = Integer.valueOf(temp[1]);
-                startNode = map[firstX][firstY];
-            }
-        }
-
 
         System.out.println("Enter the goal node. Example: X Y");
         secondXY = input.nextLine();
@@ -115,23 +108,18 @@ public class AStar {
         // Check if it within 15x15 tiles bound.
         while(true) {
             if ((secondX < 15 && secondX >= 0) && (secondY < 15 && secondY >= 0)) { 
-                break;
+                goalNode = map[secondX][secondY];
+                if (goalNode.getType() != 1) {
+                    break;
+                } else {
+                    System.out.println("Goal Node cannot be placed in untraverseable tile, Re-enter goal node. Example: X Y");
+                    secondXY = input.nextLine();
+                    temp = secondXY.split(" ");
+                    secondX = Integer.valueOf(temp[0]);
+                    secondY = Integer.valueOf(temp[1]);
+                }
             } else {
-                System.out.println("Range out of bound, Re-enter goal node. Example: X Y");
-                secondXY = input.nextLine();
-                temp = secondXY.split(" ");
-                secondX = Integer.valueOf(temp[0]);
-                secondY = Integer.valueOf(temp[1]);
-            }
-        }
-        goalNode = map[secondX][secondY];
-        // Check if goal node is placed in a traverseable tile. 
-        while (true) {
-            if (goalNode.getType() != 1) {
-                break;
-            }
-            else {
-                System.out.println("Goal Node cannot be placed in untraverseable tile, Re-enter starting node.");
+                System.out.println("Range out of bound. Re-enter goal node. Example: X Y");
                 secondXY = input.nextLine();
                 temp = secondXY.split(" ");
                 secondX = Integer.valueOf(temp[0]);
