@@ -61,7 +61,7 @@ public class Node implements Comparator<Node> {
 	}
    
 	public String toString(){
-		return "Node: " + row + "_" + col;
+		return row + ", " + col;
 	}
 	
 	public int compare(Node a, Node b) {

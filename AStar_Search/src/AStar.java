@@ -65,9 +65,110 @@ public class AStar {
 
     public void runAStar() {
         // Run A* Search Algorithm 
+        Node topPath, bottomPath, leftPath, rightPath, currentNode;
+        boolean goalAchieved = false;
+        ArrayList<Node> closedList = new ArrayList<>();
+        Node aStarComparator = new Node (0, 0, 0);
+        PriorityQueue<Node> openList = new PriorityQueue<>(225, aStarComparator);
+        ArrayList<Node> path = new ArrayList<>();
+
+        // Calculate f-, g-score, and heruistic. Set parent to null. Add starting node to openList.
+        startNode.setH(calcHeru(startNode));
+        startNode.setG(calcG(startNode));
+        startNode.setF();
+        startNode.setParent(null);
+        openList.add(startNode);
+
+        // Loop until goal achieved or no path can be found.
+        while (!goalAchieved && !openList.isEmpty()) {
+            // Pop off node with lowest F from openList and set as current node.
+            currentNode =  openList.poll();
+            // Check if currentNode equal the goal node. 
+            if (currentNode.equals(goalNode)) {
+                goalAchieved = true;
+                // Generate the path.
+                while (currentNode.getParent() != null) {
+                    path.add(currentNode);
+                    currentNode = currentNode.getParent();
+                }
+
+                // Add the root.
+                path.add(startNode);
+                System.out.println("Printing suggested path (Row, Col)");
+                for (int i = path.size() - 1; i >= 0; i--) {
+                    if (i == path.size() - 1) {
+                        System.out.println("Start Node: " + path.get(i));
+                    } else if (i == 0) {
+                        System.out.println("Goal Node: " + path.get(i));
+                    } else {
+                        System.out.println(path.get(i));
+                    }
+                } 
+            } else {
+                // Check the current node for any traverseable tile either vertically or horizontally.
+                // Generate Neighbors. Calculate the f-score, g-score, heruistic and add to openList. 
+                if (currentNode.getRow() - 1 > 0) {    // Top
+                    topPath = map[currentNode.getRow() - 1][currentNode.getCol()];
+                    // Run the top path.
+                    if (topPath.getType() != 1 && !closedList.contains(topPath)) {
+                        topPath.setH(calcHeru(topPath));
+                        topPath.setG(calcG(topPath));
+                        topPath.setF();
+                        topPath.setParent(currentNode);
+                        openList.add(topPath);
+                    }
+                }
+                if (currentNode.getRow() + 1 < map.length - 1) {    // Bottom
+                    bottomPath = map[currentNode.getRow() + 1][currentNode.getCol()];
+                    // Run the bottom path.
+                    if (bottomPath.getType() != 1 && !closedList.contains(bottomPath)) {
+                        bottomPath.setH(calcHeru(bottomPath));
+                        bottomPath.setG(calcG(bottomPath));
+                        bottomPath.setF();
+                        bottomPath.setParent(currentNode);
+                        openList.add(bottomPath);
+                    }
+                }
+                if (currentNode.getCol() - 1 > 0) {    // Left
+                    leftPath = map[currentNode.getRow()][currentNode.getCol() - 1];
+                    // Run the left path.
+                    if (leftPath.getType() != 1 && !closedList.contains(leftPath)) {
+                        leftPath.setH(calcHeru(leftPath));
+                        leftPath.setG(calcG(leftPath));
+                        leftPath.setF();
+                        leftPath.setParent(currentNode);
+                        openList.add(leftPath);
+                    }
+                }
+                if (currentNode.getCol() + 1 < map.length - 1) {    // Right
+                    rightPath = map[currentNode.getRow()][currentNode.getCol() + 1];
+                    // Run the right path.
+                    if (rightPath.getType() != 1 && !closedList.contains(rightPath)) {
+                        rightPath.setH(calcHeru(rightPath));
+                        rightPath.setG(calcG(rightPath));
+                        rightPath.setF();
+                        rightPath.setParent(currentNode);
+                        openList.add(rightPath);
+                    }
+                }
+                closedList.add(currentNode);
+            }
+        }
+        if (goalAchieved == false) {
+            System.out.println("No path have been found.");
+        }
+    }
+
+    public int calcHeru (Node current) {
+        return Math.abs(current.getCol() - goalNode.getCol()) + Math.abs(current.getRow() - goalNode.getRow());
+    }
+
+    public int calcG (Node current) {
+        return Math.abs(current.getCol() - startNode.getCol()) + Math.abs(current.getRow() - startNode.getRow());
     }
 
     public void CoordinateInput() {
+        // Get user input for starting and goal node.
         String firstXY, secondXY;
         String[] temp;
         int firstX, firstY, secondX, secondY;
