@@ -107,9 +107,9 @@ public class AStar {
             } else {
                 // Check the current node for any traverseable tile either vertically or horizontally.
                 // Generate Neighbors. Calculate the f-score, g-score, heruistic and add to openList. 
-                if (currentNode.getRow() - 1 > 0) {    // Top
+                if (currentNode.getRow() - 1 >= 0) {    // Top
                     topPath = map[currentNode.getRow() - 1][currentNode.getCol()];
-                    // Run the top path.
+                    // Run any available top path.
                     if (topPath.getType() != 1 && !closedList.contains(topPath)) {
                         topPath.setH(calcHeru(topPath));
                         topPath.setG(calcG(topPath));
@@ -118,9 +118,9 @@ public class AStar {
                         openList.add(topPath);
                     }
                 }
-                if (currentNode.getRow() + 1 < map.length - 1) {    // Bottom
+                if (currentNode.getRow() + 1 < map.length) {    // Bottom
                     bottomPath = map[currentNode.getRow() + 1][currentNode.getCol()];
-                    // Run the bottom path.
+                    // Run any available bottom path.
                     if (bottomPath.getType() != 1 && !closedList.contains(bottomPath)) {
                         bottomPath.setH(calcHeru(bottomPath));
                         bottomPath.setG(calcG(bottomPath));
@@ -129,9 +129,9 @@ public class AStar {
                         openList.add(bottomPath);
                     }
                 }
-                if (currentNode.getCol() - 1 > 0) {    // Left
+                if (currentNode.getCol() - 1 >= 0) {    // Left
                     leftPath = map[currentNode.getRow()][currentNode.getCol() - 1];
-                    // Run the left path.
+                    // Run any available left path.
                     if (leftPath.getType() != 1 && !closedList.contains(leftPath)) {
                         leftPath.setH(calcHeru(leftPath));
                         leftPath.setG(calcG(leftPath));
@@ -140,9 +140,9 @@ public class AStar {
                         openList.add(leftPath);
                     }
                 }
-                if (currentNode.getCol() + 1 < map.length - 1) {    // Right
+                if (currentNode.getCol() + 1 < map.length) {    // Right
                     rightPath = map[currentNode.getRow()][currentNode.getCol() + 1];
-                    // Run the right path.
+                    // Run any available right path.
                     if (rightPath.getType() != 1 && !closedList.contains(rightPath)) {
                         rightPath.setH(calcHeru(rightPath));
                         rightPath.setG(calcG(rightPath));
@@ -159,6 +159,7 @@ public class AStar {
         }
     }
 
+    // Manhattan Method for calculcating Heruistic and g-scores. 
     public int calcHeru (Node current) {
         return Math.abs(current.getCol() - goalNode.getCol()) + Math.abs(current.getRow() - goalNode.getRow());
     }
