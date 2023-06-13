@@ -99,6 +99,7 @@ public class AStar {
                 firstY = Integer.valueOf(temp[1]);
             }
         }
+        startNode = map[firstX][firstY];
 
         System.out.println("Enter the goal node. Example: X Y");
         secondXY = input.nextLine();
@@ -127,6 +128,7 @@ public class AStar {
                 goalNode = map[secondX][secondY];
             }
         }
+        goalNode = map[secondX][secondY];
         input.close();
     }
 }
