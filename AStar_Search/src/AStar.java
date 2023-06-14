@@ -13,25 +13,39 @@ public class AStar {
     public void generateMap() {
         // Generate map
         // Set 10% path of nodes non-traversable.
-        for (int i = 0; i < (map.length * map.length) * 0.1; i++) {
+        Node[][] temp = new Node[15][15];
+        for (int i = 0; i < (temp.length * temp.length) * 0.1; i++) {
             int row = rand.nextInt(14);
             int col = rand.nextInt(14);
 
-            while(map[row][col] != null) {
+            while(temp[row][col] != null) {
                 row = rand.nextInt(14);
                 col = rand.nextInt(14);
             }
-            map[row][col] = new Node(row, col, 1);
+            temp[row][col] = new Node(row, col, 1);
         }
 
         // Set remaining spaces as traversable.
         for (int i = 0; i < 15; i++) {
             for (int j = 0; j < 15; j++) {
-                if (map[i][j] == null) {
-                    map[i][j] = new Node(i, j, 0);
+                if (temp[i][j] == null) {
+                    temp[i][j] = new Node(i, j, 0);
                 }
             }
         }
+        // Deep copy temp board to the game board. 
+        map = copy(temp);
+    }
+
+    public Node[][] copy(Node[][] board) {
+        Node[][] copy = new Node[15][15];
+
+        for (int i = 0; i < copy.length; i++) {
+            for (int j = 0; j < copy.length; j++) {
+                copy[i][j] = board[i][j];
+            }
+        }
+        return copy;
     }
 
     public void printMap() {
