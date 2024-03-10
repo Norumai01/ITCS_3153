@@ -1,0 +1,11 @@
+C:\Users\jnguy\OneDrive - University of North Carolina at Charlotte\ITCS_3112\Practice_Code_2\BankProject_Sample\obj\Debug\BankProject_Sample.csproj.AssemblyReference.cache
+C:\Users\jnguy\OneDrive - University of North Carolina at Charlotte\ITCS_3112\Practice_Code_2\BankProject_Sample\obj\Debug\BankProject_Sample.csproj.CoreCompileInputs.cache
+C:\Users\jnguy\OneDrive - University of North Carolina at Charlotte\ITCS_3112\Practice_Code_2\BankProject_Sample\bin\Debug\BankProject_Sample.exe.config
+C:\Users\jnguy\OneDrive - University of North Carolina at Charlotte\ITCS_3112\Practice_Code_2\BankProject_Sample\bin\Debug\BankProject_Sample.exe
+C:\Users\jnguy\OneDrive - University of North Carolina at Charlotte\ITCS_3112\Practice_Code_2\BankProject_Sample\bin\Debug\BankProject_Sample.pdb
+C:\Users\jnguy\OneDrive - University of North Carolina at Charlotte\ITCS_3112\Practice_Code_2\BankProject_Sample\obj\Debug\BankProject_Sample.exe
+C:\Users\jnguy\OneDrive - University of North Carolina at Charlotte\ITCS_3112\Practice_Code_2\BankProject_Sample\obj\Debug\BankProject_Sample.pdb
+C:\Users\jnguy\OneDrive - University of North Carolina at Charlotte\ITCS_3112\Practice_Code_2\BankProject_Sample\bin\Debug\BankProject_Sample.exe.manifest
+C:\Users\jnguy\OneDrive - University of North Carolina at Charlotte\ITCS_3112\Practice_Code_2\BankProject_Sample\bin\Debug\BankProject_Sample.application
+C:\Users\jnguy\OneDrive - University of North Carolina at Charlotte\ITCS_3112\Practice_Code_2\BankProject_Sample\obj\Debug\BankProject_Sample.exe.manifest
+C:\Users\jnguy\OneDrive - University of North Carolina at Charlotte\ITCS_3112\Practice_Code_2\BankProject_Sample\obj\Debug\BankProject_Sample.application
